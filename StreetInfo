@@ -1,0 +1,423 @@
+package Array;
+import java.util.Scanner;
+import java.io.*;
+public class cptagain {
+
+	//public static void main(String[] args) {
+	// TODO Auto-generated method stub
+
+	private static Scanner input = new Scanner(System.in);
+
+	/**
+	 * prompt user for a specific street and give information of their choice
+	 * pre: FULLSTNAME >= 1 && FULLSTNAME <= 14
+	 * post: return information based on the street of user choice.
+	 */
+	public static void specificStreet()
+	{
+		//declare the variables
+		int FULLSTNAME; //the specific street name
+		int CATEGORIES; // a specific category containing information on the street
+
+		do //do - while statement referenced from Java textbook (Pg 131- 132)
+		{ 
+			//prompt user for a specific street
+			System.out.println("Which street would you like to receive information on?: ");
+			System.out.println("1. Castlemore Rd \t 2. Hwy 50  ");
+			System.out.println("3. Cottrelle Blvd \t 4. Ebenezer Rd");
+			System.out.println("5. Queen St E \t \t 6. Humberwest Pky ");
+			System.out.println("7. Fogal Rd \t \t 8. Glenvale Blvd ");
+			System.out.println("9. Finchgate Blvd \t 10. Bramalea Rd ");
+			System.out.println("11. Clark Blvd \t\t 12. Central Park Dr ");
+			System.out.println("13. Laurelcrest St \t 14. West Dr  ");
+
+			FULLSTNAME = input.nextInt(); //user inputs a number for a street
+
+			if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+			{
+				do {
+					//prompt the user for a specific category in which they would like to receive information
+					System.out.println("What category would you like to know about this street?: ");
+					System.out.println("1 Vehicle Access Information");
+					System.out.println("2 Street Type ");
+					System.out.println("3 Regulation Roads");
+					System.out.println("4 Speed Limit");
+					System.out.println("5 Number of Lanes");
+					System.out.println("6 Oneway");
+					System.out.println("7 Street Surface");
+					System.out.println("8 Street Toll");
+					System.out.println("9 Street Location within Municipality");
+					System.out.println("if you do not wish to know more, press 0");
+					CATEGORIES = input.nextInt(); //user inputs a category
+
+					//all categories with information
+					//referred to the (MethodsAssignment) as a guide for if - else if statements
+					if (CATEGORIES == 1)
+					{
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street has automobile access\n");
+						}
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street has bus access\n");
+						}
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street has pedestrian access\n");
+						}
+						if (FULLSTNAME == 1 || FULLSTNAME == 4 || FULLSTNAME == 5 || FULLSTNAME == 10)
+						{
+							//some streets do not have access to a truck
+							System.out.println("This street does not have truck access\n");
+						}
+						if (FULLSTNAME == 2)
+						{
+							//this street has and does not have access to trucks, but it depends on where
+							System.out.println("This street DOES AND DOES NOT have truck access, depending on the location\n");
+						}
+						if (FULLSTNAME == 3 || FULLSTNAME >= 6 && FULLSTNAME <= 9 || FULLSTNAME >= 11 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street has truck access\n");
+						}
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street has emergency vehicle access\n");
+						}
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street has delivery access\n");
+						}
+					}
+					else if (CATEGORIES == 2)
+					{
+						//category 2: The street type
+						if (FULLSTNAME == 1 || FULLSTNAME == 4 || FULLSTNAME == 7 || FULLSTNAME == 10)
+						{
+							System.out.println("The street type is Road(rd)\n");
+						}
+						else if (FULLSTNAME == 2)
+						{
+							System.out.println("The street type is a Highway(hwy)");
+						}
+						else if (FULLSTNAME == 3 || FULLSTNAME == 8 || FULLSTNAME == 9 || FULLSTNAME == 11)
+						{
+							System.out.println("The street type is a Boulevard(blvd)\n");
+						}
+						else if (FULLSTNAME == 5 || FULLSTNAME == 13)
+						{
+							System.out.println("The street type is a Street(st)\n");
+						}
+						else if (FULLSTNAME == 6)
+						{
+							System.out.println("The street type is a Parkway(pky)\n");
+						}
+						else if (FULLSTNAME == 12 || FULLSTNAME == 14)
+						{
+							System.out.println("The street type is a Drive(dr)\n");
+						}
+					}
+					else if (CATEGORIES == 3)
+					{
+						//category 3: the regulation roads
+						if (FULLSTNAME == 2)
+						{
+							System.out.println("This is a regulation road of 50\n");
+						}
+						else if (FULLSTNAME == 5)
+						{
+							System.out.println("This is a regulation road of 107\n");
+						}
+						else if (FULLSTNAME == 1 || FULLSTNAME == 3 || FULLSTNAME == 4 || FULLSTNAME >= 6 && FULLSTNAME <= 14)
+						{
+							System.out.println("This is not a regulation road\n");
+						}
+					}
+					else if (CATEGORIES == 4)
+					{
+						//category 4: speed limit of the street
+						if (FULLSTNAME == 1 || FULLSTNAME == 2)
+						{
+							System.out.println("The speed limit is 70\n");
+						}
+						else if (FULLSTNAME == 3 || FULLSTNAME == 10 || FULLSTNAME == 14)
+						{
+							System.out.println("The speed limit is 60\n");
+						}
+						else if (FULLSTNAME == 4 || FULLSTNAME == 7 || FULLSTNAME == 8 || FULLSTNAME == 11 || FULLSTNAME == 12)
+						{
+							System.out.println("The speed limit is 50\n");
+						}
+						else if (FULLSTNAME == 9 || FULLSTNAME == 13)
+						{
+							System.out.println("The speed limit is 40\n");
+						}
+						else if (FULLSTNAME == 6)
+						{
+							//this street is mentioned more than once, so there are different speed limits 
+							System.out.println("The speed limit in this street is likely to change, from 50 OR 70\n");
+						}
+						else if (FULLSTNAME == 5)
+						{
+							//this street is mentioned more than once, so there are different speed limits 	
+							System.out.println("The speed limit in this street is likely to change, from 60 OR 80\n");
+						}
+					}
+					else if (CATEGORIES == 5)
+					{
+						//category 5: number of lanes
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("The number of lanes is 1\n");
+						}
+					}
+					else if (CATEGORIES == 6)
+					{
+						//category 6: if there is a oneway
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street does have a oneway\n");
+						}
+					}
+					else if (CATEGORIES == 7)
+					{
+						//category 7: what is the street surface
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street has an asphalt street surface\n");
+						}
+					}
+					else if (CATEGORIES == 8)
+					{
+						//category 8: if there is a street toll
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("This street does not have a toll\n");
+						}
+					}
+					else if (CATEGORIES == 9)
+					{
+						//category 9: the location of the street within the municipalities
+						if (FULLSTNAME >= 1 && FULLSTNAME <= 14)
+						{
+							System.out.println("In the Left & Right Municipality, this street is located in Brampton\n");
+						}
+					}
+
+					else if (CATEGORIES >= 10)
+					{
+						System.out.println("Not an option! \n");
+					}
+				}while (CATEGORIES >= 1 && CATEGORIES <= 9); // keep prompting until user does not input a category number
+				{
+					System.out.println("thank you for asking."); //if user does not input a category number end the prompt
+					break;	
+				}
+			}
+		}while (FULLSTNAME >= 1 && FULLSTNAME <= 14); //display information if user inputs correct street number
+		{
+			System.out.println("restart to ask again.\n"); //restart the program to ask again.
+		}
+		input.close();
+	}
+
+
+	/**
+	 * 
+	 * @param streetInfo
+	 */
+	public static void streetGame(String [][] streetInfo)
+	{
+
+		String gameCategory = null, streetName = null, correctAnswer = null;
+		int randomCategory = 0, randomStreet = 0, categoryCategory = 0;
+
+		while (gameCategory == null || streetName == null ||correctAnswer == null || randomCategory == 54)
+		{
+			//pick the category
+			categoryCategory = ((int)((2)*Math.random()) + 1);// generates a random number to pick a category for the categories (either 1 or 2)
+			if (categoryCategory == 1)//this is the access info category
+			{
+				randomCategory = ((int)((8)*Math.random())) + 51;//gives random column for access info related question (((((51?)
+			}
+			else if (categoryCategory == 2)
+			{
+				randomCategory = 22;// this is the speed limit category
+			}
+			else 
+			{
+				System.out.println("There was an error running the program.");
+			}
+			gameCategory = streetInfo[0][randomCategory];
+
+			//pick the street
+			randomStreet = ((int)((1)*Math.random())) + 1;
+			streetName = streetInfo [randomStreet][17];
+
+			//find the correct answer
+			correctAnswer =streetInfo[randomStreet][randomCategory];
+
+			String userAnswer;
+
+			if (gameCategory != null && streetName != null &&correctAnswer != null && randomCategory != 54 && categoryCategory == 1)
+			{
+				if (gameCategory.indexOf("ACC_") != -1)//only works for game category related to access info
+				{
+					String subGameCategory = gameCategory.substring(4);//substring starting at 4 so it only gives the type of access info
+
+					System.out.println("Is there " + subGameCategory + " access on " + streetName + "?(y or n)");
+					userAnswer = input.next();
+
+				}
+				else // any other game category
+				{
+					System.out.println("Is there " + gameCategory + " on " + streetName + "?");
+					userAnswer = input.next();
+				}
+
+				if (userAnswer.equalsIgnoreCase(correctAnswer))
+				{
+					System.out.println("You are correct.");
+				}
+				else
+				{
+					System.out.println("You are incorrect.");
+				}
+			}
+			else if (gameCategory != null && streetName != null &&correctAnswer != null && categoryCategory == 2)
+			{
+				int arrayRow = 0;
+				String [] possibleAnswer = new String [49];//49 is the largest possible size of the array
+				for (int i = 1; i < 2; i ++)// ignores the first row of the array
+				{
+					String dupCheck = streetInfo [i][17];
+					if (dupCheck.equals(streetName)) 
+					{
+						System.out.println(streetInfo[i][22]);
+						possibleAnswer [arrayRow] = streetInfo[i][22];
+						arrayRow ++;
+					}
+				}
+
+				//ask user for possible answer
+				System.out.println("What is the value of the speed limit on " + streetName + "?");
+				userAnswer = input.next();
+
+				arrayRow = 0;
+				boolean answer = false;
+				for (int i = 1; i < possibleAnswer.length; i++)
+				{
+					if (possibleAnswer [arrayRow]!= null && answer == false && possibleAnswer[arrayRow].equals(userAnswer))
+					{
+						answer = true;
+						System.out.println("You are correct.");
+					}
+					arrayRow ++;
+				}
+				if (!answer)
+				{
+					System.out.println("You are incorrect.");
+				}
+			}
+		}
+		input.close();
+	}
+
+	public static String[][]  fileReading(){
+
+		//Merna’s code
+
+
+		//Create files 
+		File numFile = new File("streetInfo.txt");
+		FileReader in;
+		BufferedReader readFile;
+
+		//Declare variables
+		int rowLength, rowCount = 0; 
+		String row;
+		String [][] originalArray = new String [51][60];
+
+		try
+		{
+			//Open file for reading
+			in = new FileReader(numFile);
+			readFile = new BufferedReader(in);
+
+			//Keep reading the file as long as they are there
+			//The while loop code is from the readFiles.java program
+			while ((row = readFile.readLine()) != null )
+			{
+				//This line of code is from the splitExample program
+				String[] rowArray = row.split(","); // the elements in the array are separated by commas
+
+				for(int i = 0; i < 60; i++)
+				{
+					originalArray[rowCount][i] = rowArray[i];
+				}
+				rowCount += 1;
+			} 
+			//Close input file
+			readFile.close();
+			in.close();
+		}
+		catch (FileNotFoundException e)
+		{
+			System.out.println("File does not exist or could not be found.");
+			System.err.println("FileNotFoundException: " + e.getMessage());
+		}
+		//generic error like else
+		catch (IOException e)
+		{
+			System.out.println("Problem reading file.");
+			System.err.println("IOException: " + e.getMessage());
+		}
+		return originalArray;
+	}
+
+	/**main method 
+	 * the menu where the user chooses what part they would like to run
+	 * pre: none
+	 * post: runs the method the user chooses
+	 * @throws IOException 
+	 */	
+
+	public static void main(String[] args) throws IOException 
+	{
+		// TODO Auto-generated method stub
+
+		//Declare the userAnswer
+		int userAnswer;
+
+		String [][] fileArray= fileReading();
+
+		//Introduce menu option to user and allow user to select options from the menu
+		System.out.println("  Welcome to the street program! ");
+		System.out.println("Please select one of the following options:  ");
+		System.out.println("1: Play the street game");
+		System.out.println("2: Get street information");
+		System.out.println("3: None");
+
+		userAnswer = input.nextInt();
+
+		//If the user chooses 1, then run it
+		if (userAnswer == 1) 
+		{
+			streetGame(fileArray);
+		}
+		//If the user chooses 2, then run it
+		else if (userAnswer == 2)
+		{
+			specificStreet();
+		}
+		//If the user chooses 3, then display message
+		else if (userAnswer == 3)
+		{
+			System.out.println("Sorry, that’s all we offer, please try a different program");
+		}
+		input.close();
+
+
+	}
+
+}
